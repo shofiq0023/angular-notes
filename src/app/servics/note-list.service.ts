@@ -6,15 +6,11 @@ import { Observable, of } from 'rxjs';
 // @ts-nocheck
 let storageItem = JSON.parse(localStorage.getItem('notes'));
 
-let noteList: Note[] = [];
-
-noteList = storageItem;
-
 @Injectable({
 	providedIn: 'root',
 })
 export class NoteListService {
-	notes: Note[] = noteList;
+	notes: Note[] = storageItem;
 	constructor() {}
 
 	getAll(): Observable<Note[]> {
