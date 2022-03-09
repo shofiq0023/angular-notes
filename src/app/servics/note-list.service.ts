@@ -2,18 +2,12 @@ import { Injectable } from '@angular/core';
 import { Note } from '../Note';
 import { Observable, of } from 'rxjs';
 
-const noteList: Note[] = [
-	{
-		id: Math.floor(Math.random() * 10000 + 1),
-		title: 'Download Movies',
-		desc: 'download movies from torrentBD or CrazyHD',
-	},
-	{
-		id: Math.floor(Math.random() * 10000 + 1),
-		title: 'Go shopping',
-		desc: 'buy some shirts, pants and shoes from market',
-	},
-];
+// @ts-ignore
+let storageItem = JSON.parse(localStorage.getItem('notes'));
+
+let noteList: Note[] = [];
+
+noteList = storageItem;
 
 @Injectable({
 	providedIn: 'root',
@@ -30,6 +24,8 @@ export class NoteListService {
 	addNote(note: Note): Observable<Note[]> {
 		this.notes.push(note);
 		const newNotes = this.notes;
+		// updates the note list item in local storage
+		localStorage.setItem('notes', JSON.stringify(this.notes));
 		return of(newNotes);
 	}
 
@@ -40,6 +36,8 @@ export class NoteListService {
 				this.notes.splice(i, 1);
 			}
 		}
+		// updates the note list item in local storage
+		localStorage.setItem('notes', JSON.stringify(this.notes));
 		return of(this.notes);
 	}
 }
