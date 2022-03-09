@@ -10,13 +10,13 @@ import { Observable, of } from 'rxjs';
 })
 export class NoteListService implements OnInit {
 	ngOnInit(): void {
-		// @ts-ignore
-		// @ts-nocheck
-		this.notes = JSON.parse(localStorage.getItem('notes'));
+		if (this.notes) {
+			// @ts-ignore
+			// @ts-nocheck
+			this.notes = JSON?.parse(localStorage?.getItem('notes'));
+		}
 	}
-	// @ts-ignore
-	// @ts-nocheck
-	notes: Note[];
+	notes: Note[] = [];
 
 	constructor() {}
 	getAll(): Observable<Note[]> {
@@ -25,7 +25,6 @@ export class NoteListService implements OnInit {
 	}
 
 	addNote(note: Note): Observable<Note[]> {
-		debugger;
 		this.notes?.push(note);
 		const newNotes = this.notes;
 		// updates the note list item in local storage
