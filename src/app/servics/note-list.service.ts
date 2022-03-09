@@ -8,7 +8,7 @@ let storageItem = JSON.parse(localStorage.getItem('notes'));
 
 let noteList: Note[] = [];
 
-noteList = storageItem;
+// noteList = storageItem;
 
 @Injectable({
 	providedIn: 'root',
