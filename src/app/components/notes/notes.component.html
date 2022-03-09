@@ -1,0 +1,6 @@
+<app-notes-add (onAddNote)="addNote($event)"></app-notes-add>
+
+<app-notes-list
+	[notes]="notes"
+	(onDelete)="deleteNote($event)"
+></app-notes-list>

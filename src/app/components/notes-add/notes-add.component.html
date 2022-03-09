@@ -1,0 +1,34 @@
+<div class="container">
+	<div class="row my-4">
+		<div class="col-md-6 offset-md-3">
+			<h4>Add Note</h4>
+			<form class="form shadow rounded" (ngSubmit)="onSubmit()">
+				<div class="form-group">
+					<input
+						type="text"
+						name="title"
+						[(ngModel)]="title"
+						placeholder="Title.."
+						id="title"
+						class="form-control custom-input my-2"
+					/>
+				</div>
+				<div class="form-group">
+					<input
+						type="text"
+						name="desc"
+						[(ngModel)]="desc"
+						placeholder="Description.."
+						id="desc"
+						class="form-control custom-input my-2"
+					/>
+				</div>
+				<div class="form-group mt-4">
+					<button class="btn btn-outline-primary btn-bg">
+						<fa-icon [icon]="faPlus"></fa-icon>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

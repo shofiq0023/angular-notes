@@ -1,0 +1,15 @@
+.card {
+	background-color: var(--secondary-dark-color);
+	transition: background-color ease-in-out 200ms;
+	border-radius: 10px;
+}
+.card button {
+	opacity: 0;
+	transition: all ease-in-out 200ms;
+}
+.card:hover {
+	background-color: var(--secondary-dark-color-hover);
+}
+.card:hover button {
+	opacity: 1;
+}
