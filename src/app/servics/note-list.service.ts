@@ -2,13 +2,13 @@ import { Injectable, OnInit } from '@angular/core';
 import { Note } from '../Note';
 import { Observable, of } from 'rxjs';
 
-// @ts-ignore
-// @ts-nocheck
-
 @Injectable({
 	providedIn: 'root',
 })
 export class NoteListService implements OnInit {
+	notes: Note[] = [];
+
+	// getting data from localstorage and setting them in notes array
 	ngOnInit(): void {
 		if (this.notes) {
 			// @ts-ignore
@@ -16,7 +16,6 @@ export class NoteListService implements OnInit {
 			this.notes = JSON?.parse(localStorage?.getItem('notes'));
 		}
 	}
-	notes: Note[] = [];
 
 	constructor() {}
 	getAll(): Observable<Note[]> {
