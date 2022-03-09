@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 
 // @ts-ignore
 // @ts-nocheck
-let storageItem = JSON.parse(localStorage.getItem('notes'));
+var storageItem = JSON.parse(localStorage.getItem('notes'));
 
 @Injectable({
 	providedIn: 'root',
@@ -19,7 +19,7 @@ export class NoteListService {
 	}
 
 	addNote(note: Note): Observable<Note[]> {
-		this.notes.push(note);
+		this.notes?.push(note);
 		const newNotes = this.notes;
 		// updates the note list item in local storage
 		localStorage.setItem('notes', JSON.stringify(this.notes));

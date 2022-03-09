@@ -9,11 +9,13 @@ import { NoteListService } from 'src/app/servics/note-list.service';
 })
 export class NotesComponent implements OnInit {
 	notes: Note[] = [];
+
 	constructor(private noteListService: NoteListService) {}
 
 	ngOnInit(): void {
 		this.noteListService.getAll().subscribe((note) => {
 			this.notes = note;
+			var a;
 		});
 	}
 
