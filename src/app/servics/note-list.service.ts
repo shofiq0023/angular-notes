@@ -3,6 +3,7 @@ import { Note } from '../Note';
 import { Observable, of } from 'rxjs';
 
 // @ts-ignore
+// @ts-nocheck
 let storageItem = JSON.parse(localStorage.getItem('notes'));
 
 let noteList: Note[] = [];

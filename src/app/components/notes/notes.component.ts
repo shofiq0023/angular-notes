@@ -18,14 +18,12 @@ export class NotesComponent implements OnInit {
 	}
 
 	addNote(note: Note) {
-		console.log('Add note: ', note);
 		this.noteListService.addNote(note).subscribe((note) => {
 			this.notes = note;
 		});
 	}
 
 	deleteNote(note: Note) {
-		console.log('delete emit works : ', note);
 		this.noteListService.deleteNote(note).subscribe((note) => {
 			this.notes = note;
 		});
