@@ -1,18 +1,24 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Note } from '../Note';
 import { Observable, of } from 'rxjs';
 
 // @ts-ignore
 // @ts-nocheck
-var storageItem = JSON.parse(localStorage.getItem('notes'));
 
 @Injectable({
 	providedIn: 'root',
 })
-export class NoteListService {
-	notes: Note[] = storageItem;
-	constructor() {}
+export class NoteListService implements OnInit {
+	ngOnInit(): void {
+		// @ts-ignore
+		// @ts-nocheck
+		this.notes = JSON.parse(localStorage.getItem('notes'));
+	}
+	// @ts-ignore
+	// @ts-nocheck
+	notes: Note[];
 
+	constructor() {}
 	getAll(): Observable<Note[]> {
 		const items = of(this.notes);
 		return items;
