@@ -19,6 +19,7 @@ export class NoteListService {
 	}
 
 	addNote(note: Note): Observable<Note[]> {
+		debugger;
 		this.notes?.push(note);
 		const newNotes = this.notes;
 		// updates the note list item in local storage
