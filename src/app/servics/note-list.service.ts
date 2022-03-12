@@ -8,16 +8,14 @@ import { Observable, of } from 'rxjs';
 export class NoteListService implements OnInit {
 	notes: Note[] = [];
 
-	// getting data from localstorage and setting them in notes array
-	ngOnInit(): void {
-		if (this.notes) {
-			// @ts-ignore
-			// @ts-nocheck
-			this.notes = JSON?.parse(localStorage?.getItem('notes'));
-		}
-	}
+	ngOnInit(): void {}
 
-	constructor() {}
+	// getting data from localstorage and setting them in notes array
+	constructor() {
+		// @ts-ignore
+		// @ts-nocheck
+		this.notes = JSON?.parse(localStorage?.getItem('notes'));
+	}
 	getAll(): Observable<Note[]> {
 		const items = of(this.notes);
 		return items;
