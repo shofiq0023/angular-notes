@@ -1,6 +1,6 @@
 .card {
 	background-color: var(--secondary-dark-color);
-	transition: background-color ease-in-out 200ms;
+	transition: all ease-in-out 200ms;
 	border-radius: 10px;
 }
 .card button {
@@ -9,6 +9,8 @@
 }
 .card:hover {
 	background-color: var(--secondary-dark-color-hover);
+	box-shadow: -3px 8px 10px rgba(0,0,0,0.3);
+	transform: translateY(-2px);
 }
 .card:hover button {
 	opacity: 1;
